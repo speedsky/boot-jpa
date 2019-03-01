@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+
 @RestController
 @SpringBootApplication
 public class Application {
@@ -14,7 +17,14 @@ public class Application {
 	}
 	
 	@RequestMapping(value = "/",method = RequestMethod.GET)
-    public String index(){	  
-	   return "<h1>hello jpa! </h1>";	 
+    public ModelAndView index(){
+	    ModelAndView mv =new ModelAndView("index");
+	    //User  user= userService.selectByPrimaryKey(26);
+	    
+	    //System.out.println(user.getUsername());
+	    //mv.addObject("user",user);
+        return mv;
     }
+	
+	
 }
